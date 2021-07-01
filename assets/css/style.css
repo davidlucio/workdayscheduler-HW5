@@ -40,6 +40,20 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  position: relative;
+}
+
+.hour p{
+  display:block;
+  text-align: right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.time-block:hover .hour,
+.time-block:focus .hour {
+font-weight: 600;
 }
 
 .past {
@@ -65,7 +79,7 @@ textarea {
   color: white;
 }
 
-.saveBtn i:hover {
+.saveBtn:hover i {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
