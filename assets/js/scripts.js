@@ -52,31 +52,34 @@ function loadEventList(){
         console.log("It's still today today!");
 
         $("section.time-block").each( function(index){
-
             var eventTextArea = $(this).children('textarea');
-
-            // Load the event for this hour
             var hourID = $(this).attr('id');
             var eventText = reloadedList.events[hourID];
             eventTextArea.html(eventText);
-
-            // Determine if previous, current, or future hour
-            if( currentHour > hourID ){
-                eventTextArea.addClass("past");
-            }
-            else if ( currentHour == hourID ){
-                eventTextArea.addClass("present");
-            }
-            else{
-                eventTextArea.addClass("future");
-            }
-            
         });
 
     }
     else{
+        // Only do this if it's a new day...
         console.log("It's a new day!");
     }
+
+    // Change the colors of the time blocks...
+    $("section.time-block").each( function(index){
+        // Determine if previous, current, or future hour
+        var eventTextArea = $(this).children('textarea');
+        var hourID = $(this).attr('id');
+        if( currentHour > hourID ){
+            eventTextArea.addClass("past");
+        }
+        else if ( currentHour == hourID ){
+            eventTextArea.addClass("present");
+        }
+        else{
+            eventTextArea.addClass("future");
+        }
+        
+    });
 
 }
 
