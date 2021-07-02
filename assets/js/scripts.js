@@ -47,7 +47,7 @@ function loadEventList(){
     var reloadedList = JSON.parse( localStorage.getItem('bootcampHW-schedule') );
 
     // "What's with today today?"
-    if( loadToday === reloadedList.date ){
+    if( reloadedList != null && loadToday === reloadedList.date ){
         // Populate based on stuff in the event list...
         console.log("It's still today today!");
 
